@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      body-parse:
-        specifier: ^0.1.0
-        version: 0.1.0
       body-parser:
         specifier: ^2.2.0
         version: 2.2.0
