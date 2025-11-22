@@ -3,7 +3,7 @@ import axios from 'axios'
 
 function ManiDashboard() {
 
-  const api = 'https://student-management-system-backend-sandy.vercel.app';
+  const api = 'https://student-management-system-backend-ebon.vercel.app';
 
   async function getStudent() {
     try {
