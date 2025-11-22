@@ -4,10 +4,16 @@ const connectDb = require("./config/db");
 const studentRouter = require("./Routers/studentRoute");
 const teacherRouter = require("./Routers/teacherRouter");
 const bodyparse = require("body-parser");
+const cors = require('cors')
 const app = express();
 require("dotenv").config();
 app.use(bodyparse.json());
 app.use(bodyparse.urlencoded({ extended: true }));
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+}));
 
 const PORT = process.env.PORT || 3000;
 
