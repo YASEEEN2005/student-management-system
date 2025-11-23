@@ -6,6 +6,7 @@ const teacherSchema = new mongoose.Schema(
     age: Number,
     email: { type: String, required: true },
     subject: { type: String, required: true },
+    secret: { type: String, required: true },
   },
   {
     timestamps: true,

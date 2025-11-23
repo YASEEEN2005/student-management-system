@@ -26,11 +26,11 @@ const getSingleTeacher = async (req, res) => {
 };
 
 const createTeacher = async (req, res) => {
-  const { id, name, age, email, subject } = req.body;
+  const { id, name, age, email, subject, secret } = req.body;
 
-  if (!id || !name || !email || !subject) {
+  if (!id || !name || !email || !subject || !secret) {
     return res.status(400).json({
-      message: "All fields (id, name, email, subject) are required",
+      message: "All fields (id, name, email, subject, secret) are required",
     });
   }
 
@@ -41,23 +41,24 @@ const createTeacher = async (req, res) => {
       age,
       email,
       subject,
+      secret,
     });
 
     await data.save();
-    res.send("Teacher Added");
+    res.json({ message: "Teacher added successfully" });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
 const updateTeacher = async (req, res) => {
   const { id } = req.params;
-  const { name, age, email, subject } = req.body;
+  const { name, age, email, subject, secret } = req.body;
 
   try {
     const teacher = await teacherData.findOneAndUpdate(
       { id: id },
-      { name, age, email, subject },
+      { name, age, email, subject, age, secret },
       { new: true }
     );
 
@@ -70,7 +71,7 @@ const updateTeacher = async (req, res) => {
       teacher,
     });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ error: error.message });
   }
 };
 
