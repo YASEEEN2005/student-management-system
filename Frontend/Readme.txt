@@ -1,0 +1,1 @@
+https://student-management-system-frontend-nu.vercel.app/
