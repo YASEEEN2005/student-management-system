@@ -1,7 +1,7 @@
 const { studentData } = require("../Models/studentModel");
 
 const getStudent = async (req, res) => {
-  const student = await studentData.find();
+  const student = await studentData.find().sort({ createdAt: -1 });;
   res.send(student);
 };
 

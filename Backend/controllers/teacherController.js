@@ -2,7 +2,7 @@ const teacherData = require("../Models/teacherModel");
 
 const getTeachers = async (req, res) => {
   try {
-    const teachers = await teacherData.find();
+    const teachers = await teacherData.find().sort({ createdAt: -1 });;
     res.send(teachers);
   } catch (error) {
     res.status(500).send(error);
